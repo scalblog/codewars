@@ -19,7 +19,20 @@ No implicit type casting is allowed. A subarray [1, '2'] would be considered ill
 
 */
 
+/* My solution was */
 
+function filterHomogenous(arrays) {
+  let result = [];
+
+  for (let i = 0; i < arrays.length; i++ ) {
+    let arrType = typeof arrays[i][0];
+    (arrays[i].length >= 1 && arrays[i].every(x => typeof x === arrType)) ? result.push(arrays[i]) : ''
+  }
+
+  return result;
+}
+
+/* Best solution is */
 
 function filterHomogenous(arrays) {
   
