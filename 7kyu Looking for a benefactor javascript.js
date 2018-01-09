@@ -19,14 +19,8 @@ newAvg([14, 30, 5, 7, 9, 11, 15], 2) should throw new RangeError
 
 */
 
-// NOTICE My solution doesnt work. Working on some improvement :
-
-function newAvg(arr, newavg) {
- 
-    if (!arr.some(isNaN) && arr != []) {
-    var sum = arr.reduce((x, y) => x + y);
-    var soluce = ((newavg * (arr.length+1)) - sum);
-   if (soluce > 0) {return  Math.ceil(soluce);}   
-   }
-   else {throw new RangeError();}
-   }
+function newAvg(arr, newavg){
+  const x = newavg * (arr.length + 1) - arr.reduce((a,b) => a + b,0)
+  if(x <= 0) throw 'ValueError'
+  return Math.ceil(x)
+}
